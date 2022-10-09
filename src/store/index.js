@@ -6,28 +6,28 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
   state: {
-    // posar variables i col·leccions aquí
     starShips: [],
     infoTechShip: [],
-    index: 0
   },
   getters: {
-    // posa l'equivalent a les propietats computades aquí
+    getStarShips(state) {
+      return state.starShips
+    },
+    getInfoShips(state) {
+      return state.infoTechShip
+    }
   },
-  mutations: {
-    // funcions síncrones per canviar l'estat e.j. put, edit, delete
-    setInoShip(state, getItem) {
-      state.infoTechShip = getItem
+  mutations: { 
+    setShips(state, setShipsAction) {
+      state.starShips = setShipsAction
     }
   },
   actions: {
-    // funcions asíncrones que pot anomenar una o més mutacions
-    async GET_STARSHIPS() {
+    async GET_STARSHIPS({ commit }) {
       const response = await fetch(`https://swapi.dev/api/starships/`);
-      this.state.starShips = await response.json();
-      console.log(this.starShips)
+      const ships = await response.json();
+      commit('setShips', ships)
     },
-
   },
   modules: {
   }

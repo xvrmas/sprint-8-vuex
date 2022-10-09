@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="llista" v-for="(item,i) in starShips.results" :key="i">
-            <a class="nav-link" @click="setInfoShip(item)">
+        <div class="llista" v-for="(item,i) in getStarShips.results" :key="i">
+            <a class="nav-link" href="#" @click="setInfoShip(item)">
                 <h5>{{item.name}}</h5>
                 <h6>{{item.model}}</h6>
             </a>
@@ -9,15 +9,18 @@
     </div>
 </template>
 <script>
-import { mapMutations, mapState } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
     name: 'ListStarships',
     computed: {
-        ...mapState(['starShips']),
+        ...mapGetters(['getStarShips']),
+        ...mapMutations(['setShips',''])
     },
     methods: {
-        setInfoShip: function (item) {
+        setInfoShip (item) {
+            this.$store.state.infoTechShip = item;
             console.log(item)
+
         },
 
     }
@@ -29,7 +32,7 @@ export default {
     margin: 20px;
 }
 
-h5 {
+h5,h4,h3 {
     margin: 10px;
     margin-left: 40px;
 }
