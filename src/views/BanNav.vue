@@ -8,31 +8,36 @@
                 <b-collapse id="nav-text-collapse" is-nav>
                     <b-navbar-nav>
                         <div class="social">
-                            <button class="nav-item btn text-white">LOGIN</button>
+                            <button class="nav-item btn text-white">LOGIN</button>//
                             <button class=" nav-item btn text-white">REGISTER</button>
                         </div>
                     </b-navbar-nav>
                 </b-collapse>
             </b-navbar>
-            <header class="botons">
+            <header class="botons fixed-top">
                 <div class="botons-2 text-primary">
-                    <b-button squared class="bg-dark">HOME</b-button>
-                    <b-button squared class="bg-dark" @click="showStarships()">STARSHIPS</b-button>
+                    <b-button squared class="btn bg-transparent  ">HOME</b-button>
+                    <b-button squared class="btn bg-transparent " @click="showStarships()">STARSHIPS</b-button>
                 </div>
             </header>
         </div>
-        <InfoStarship></InfoStarship>
-        <ListStarships></ListStarships>
     </div>
 </template>
 <script>
 import ListStarships from "./ListStarships.vue";
 import InfoStarship from "./InfoStarship.vue";
+import { mapState } from 'vuex'
+
 export default {
     name: "BanNav",
     components: { ListStarships, InfoStarship },
+    computed: {
+        ...mapState(['condition']),
+    },
     methods: {
         showStarships: function () {
+            this.$router.push("/ListStarships");
+            this.$store.state.condition = true
             return this.$store.dispatch("GET_STARSHIPS")
         },
     }
@@ -45,7 +50,7 @@ export default {
 }
 
 .social {
-    margin-left: 30%;
+    margin-left: 20em;
 }
 
 .imatge {
@@ -53,23 +58,18 @@ export default {
 }
 
 .botons {
-    margin-top: 150px;
-    border-bottom: solid white 1px;
-    border-top: solid white 1px;
+    margin-top: 125px;
+    border-bottom: solid rgb(221, 221, 221) 1px;
+    border-top: solid rgb(221, 221, 221) 1px;
 }
 
 .btn1 {
     margin-right: 10%;
 }
 
-/* .botons-2>:hover {
-    margin-bottom: solid red 2px;
-} */
-
 .botons-2 {
     margin-left: 40%;
     margin-right: 45%;
-    /* border-left: solid white 1px;
-    border-right: solid white 1px; */
+    background-color: black;
 }
 </style>

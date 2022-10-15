@@ -8,7 +8,9 @@ export default new Vuex.Store({
   state: {
     starShips: [],
     infoTechShip: [],
-    page: 1
+    page: 1,
+    condition: false,
+    numImg: 1
   },
   getters: {
     getStarShips(state) {
@@ -17,8 +19,14 @@ export default new Vuex.Store({
     getInfoShips(state) {
       return state.infoTechShip
     },
-    getPage(state){
+    getPage(state) {
       return state.page
+    },
+    getCondition(state) {
+      return state.condition
+    },
+    getNumImg(state) {
+      return state.numImg
     }
   },
   mutations: {
@@ -34,5 +42,5 @@ export default new Vuex.Store({
     },
   },
   modules: {
-  } 
+  }
 })
