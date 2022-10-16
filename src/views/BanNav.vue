@@ -16,7 +16,7 @@
             </b-navbar>
             <header class="botons fixed-top">
                 <div class="botons-2 text-primary">
-                    <b-button squared class="btn bg-transparent  ">HOME</b-button>
+                    <b-button squared class="btn bg-transparent " @click="Home()">HOME</b-button>
                     <b-button squared class="btn bg-transparent " @click="showStarships()">STARSHIPS</b-button>
                 </div>
             </header>
@@ -24,13 +24,14 @@
     </div>
 </template>
 <script>
+import Home from './Home.vue'
 import ListStarships from "./ListStarships.vue";
 import InfoStarship from "./InfoStarship.vue";
 import { mapState } from 'vuex'
 
 export default {
     name: "BanNav",
-    components: { ListStarships, InfoStarship },
+    components: {Home, ListStarships, InfoStarship },
     computed: {
         ...mapState(['condition']),
     },
@@ -40,6 +41,10 @@ export default {
             this.$store.state.condition = true
             return this.$store.dispatch("GET_STARSHIPS")
         },
+        Home(){
+            this.$router.push("/");
+
+        }
     }
 }
 

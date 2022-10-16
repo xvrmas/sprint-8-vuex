@@ -28,10 +28,8 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import ImageShip from '@/components/ImageShip.vue'
 export default {
     name: 'InfoStarship',
-    components: { ImageShip },
     data() {
         return {
 
@@ -51,8 +49,8 @@ export default {
 .panell-ships {
     margin-top: 20vh;
     padding: 2vh;
-    border: solid rgb(56, 56, 56) 1px;
-    border-right: solid red 2px;
+    border: solid rgb(86, 86, 86) 1px;
+    border-right: solid rgb(164, 161, 161) 3px;
 }
 
 .panell-imatge {
