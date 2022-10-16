@@ -10,7 +10,9 @@
             <button class="btn ml-5 text-white " @click="decreasePage">
                 <b-icon icon="arrow-left"></b-icon>
             </button>
-            <a href="#"> <b-icon class="text-white" icon="arrow-bar-up"></b-icon></a>
+            <a href="#">
+                <b-icon class="text-white" icon="arrow-bar-up"></b-icon>
+            </a>
             <button class="btn text-white" @click="increasePage">
                 <b-icon icon="arrow-right"></b-icon>
             </button>
@@ -18,14 +20,20 @@
     </div>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations, mapState } from 'vuex';
 
 export default {
     name: 'ListStarships',
-   
+    data() {
+        return {
+            PreImatge: ''
+        }
+    },
+
     computed: {
-        ...mapGetters(['getStarShips','getCondition']),
-        ...mapMutations(['setShips'])
+        ...mapGetters(['getStarShips', 'getCondition', 'getNumImg']),
+        ...mapMutations(['setShips']),
+        ...mapState(['numImg'])
     },
 
     methods: {
@@ -68,9 +76,11 @@ export default {
     margin-right: 30vh;
     margin-top: 5vh;
 }
-.botons-nav{
+
+.botons-nav {
     margin: 2em 45% 5em;
 }
+
 .page-minus {
     margin-top: 2%;
     margin-left: 40%;
