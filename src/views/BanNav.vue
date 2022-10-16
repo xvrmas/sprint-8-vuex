@@ -8,7 +8,7 @@
                 <b-collapse id="nav-text-collapse" is-nav>
                     <b-navbar-nav>
                         <div class="social">
-                            <button class="nav-item btn text-white">LOGIN</button>//
+                            <button class="nav-item btn text-white" @click="loginPage()">LOGIN</button>//
                             <button class=" nav-item btn text-white">REGISTER</button>
                         </div>
                     </b-navbar-nav>
@@ -31,7 +31,7 @@ import { mapState } from 'vuex'
 
 export default {
     name: "BanNav",
-    components: {Home, ListStarships, InfoStarship },
+    components: { Home, ListStarships, InfoStarship },
     computed: {
         ...mapState(['condition']),
     },
@@ -41,8 +41,12 @@ export default {
             this.$store.state.condition = true
             return this.$store.dispatch("GET_STARSHIPS")
         },
-        Home(){
+        Home() {
             this.$router.push("/");
+
+        },
+        loginPage() {
+            this.$router.push("/LoginPage");
 
         }
     }

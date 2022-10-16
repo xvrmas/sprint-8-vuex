@@ -18,6 +18,11 @@ const routes = [
     path: '/InfoStarship',
     name: 'InfoStarship',
     component: () => import('../views/InfoStarship.vue')
+  },
+  {
+    path: '/LoginPage',
+    name: 'LoginPage',
+    component: () => import('../views/LoginPage.vue')
   }
 
 ]
