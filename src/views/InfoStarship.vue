@@ -1,6 +1,6 @@
 <template>
     <div class="container d-flex">
-        <div class="panell-ships  col-sm-6 text-white" >
+        <div class="panell-ships  col-sm-6 text-white">
             <h2>{{getInfoShips.name}}</h2>
             <hr>
             <h6><strong>Model:</strong> {{getInfoShips.model}}</h6>
@@ -17,7 +17,7 @@
             <h6>MGLT: {{getInfoShips.MGLT}}</h6>
         </div>
         <div id="ImatgeFons" :style="{
-          backgroundImage: `url(${require(`@/assets/starships/${getNumImg}.jpg`)})`,
+          backgroundImage: `${imageShips}`,
           width: '100%',
           height: '66vh',
           backgroundPosition:'  center',
@@ -27,16 +27,18 @@
     </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 export default {
     name: 'InfoStarship',
     data() {
         return {
 
+            
         }
     },
     computed: {
-        ...mapGetters(['getInfoShips', 'getNumImg'])
+        ...mapGetters(['getInfoShips', 'getNumImg', ' getImageShips']),
+        ...mapState([' imageShips'])
     },
 
 }

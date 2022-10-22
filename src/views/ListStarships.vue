@@ -1,12 +1,12 @@
 <template>
     <div class="llista">
-        <div class="ships  bg-dark" v-for="(item,i) in getStarShips.results" :key="i">
-            <a class="nav-link bg-dark text-secondary " href="#" @click="setInfoShip(item),imatge(item)">
+        <div class="col-sm-8 mx-auto  p-3 m-3  bg-dark" v-for="(item,i) in getStarShips.results" :key="i">
+            <a class="nav-link  bg-dark text-secondary " href="#" @click="setInfoShip(item),imatge(item),showImageShip(item)">
                 <h5 class="bg-dark">{{item.name}}</h5>
                 <h6 class="bg-dark">{{item.model}}</h6>
             </a>
         </div>
-        <div v-if="getCondition" class="botons-nav">
+        <div v-if="getCondition" class="mx-auto m-5 ">
             <button class="btn ml-5 text-white " @click="decreasePage">
                 <b-icon icon="arrow-left"></b-icon>
             </button>
@@ -60,37 +60,20 @@ export default {
         imatge(item) {
             this.$store.state.numImg = item.url.split(/\D/g).join(''),
                 console.log(this.$store.state.numImg)
-        }
+        },
+        showImageShip: function (item) {
+            return this.$store.dispatch("GET_IMAGESHIPS", item)
+        },
     },
 
 }
 </script>
 <style scoped>
 .llista {
-    margin-top: 190px;
-}
-
-.ships {
-    padding: 20px;
-    margin-left: 30vh;
-    margin-right: 30vh;
-    margin-top: 5vh;
+    margin-top: 200px;
 }
 
 .botons-nav {
-    margin: 2em 45% 5em;
-}
-
-.page-minus {
-    margin-top: 2%;
-    margin-left: 40%;
-    margin-bottom: 10%;
-}
-
-.page-plus {
-    margin-top: 2%;
-    margin-left: 5%;
-    margin-bottom: 10%;
-
+    margin: 3em;
 }
 </style>

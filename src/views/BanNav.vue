@@ -2,24 +2,26 @@
     <div>
         <!-- <div> -->
         <div>
-            <b-navbar class="py-3 barra fixed-top" toggleable="sm" type="dark">
-                <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
-                <img class="imatge" src="@/assets/starwars-logo.png" alt="logo star wars">
-                <b-collapse id="nav-text-collapse" is-nav>
-                    <b-navbar-nav>
-                        <div class="social">
-                            <button class="nav-item btn text-white" @click="loginPage()">LOGIN</button>//
-                            <button class=" nav-item btn text-white">REGISTER</button>
+            <b-navbar class="py-3 fixed-top" toggleable="sm" type="dark">
+                <div class="container d-flex">
+                    <!-- <b-navbar-toggle target="nav-text-collapse"> -->
+                        <img class="imatge" src="@/assets/starwars-logo.png" alt="logo star wars">
+                        <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+                            <div>
+                                    <button class="nav-item btn text-white" @click="loginPage()">LOGIN</button>//
+                                    <button class=" nav-item btn text-white">REGISTER</button>
+                            </div>
                         </div>
-                    </b-navbar-nav>
-                </b-collapse>
-            </b-navbar>
-            <header class="botons fixed-top">
-                <div class="botons-2 text-primary">
-                    <b-button squared class="btn bg-transparent " @click="Home()">HOME</b-button>
-                    <b-button squared class="btn bg-transparent " @click="showStarships()">STARSHIPS</b-button>
+                    <!-- </b-navbar-toggle> -->
+                    <!-- </b-collapse> -->
+                    <div class="fixed-top"
+                        style="border-top:solid rgb(221,221,221) 1px; border-bottom: solid rgb(221,221,221)  1px; margin-top:130px">
+                        <b-button squared class="btn bg-transparent " @click="Home()">HOME</b-button>
+                        <b-button squared class="btn bg-transparent " @click="showStarships()">STARSHIPS
+                        </b-button>
+                    </div>
                 </div>
-            </header>
+            </b-navbar>
         </div>
     </div>
 </template>
@@ -33,7 +35,7 @@ export default {
     name: "BanNav",
     components: { Home, ListStarships, InfoStarship },
     computed: {
-        ...mapState(['condition']),
+        ...mapState(['condition','numImg']),
     },
     methods: {
         showStarships: function () {
@@ -41,12 +43,13 @@ export default {
             this.$store.state.condition = true
             return this.$store.dispatch("GET_STARSHIPS")
         },
+       
         Home() {
             this.$router.push("/");
 
         },
         loginPage() {
-            this.$router.push("/LoginPage");
+            this.$router.push("/AuthView");
 
         }
     }
@@ -67,7 +70,7 @@ export default {
 }
 
 .botons {
-    margin-top: 125px;
+    margin-top: 22vh;
     border-bottom: solid rgb(221, 221, 221) 1px;
     border-top: solid rgb(221, 221, 221) 1px;
 }
@@ -77,8 +80,6 @@ export default {
 }
 
 .botons-2 {
-    margin-left: 40%;
-    margin-right: 45%;
     background-color: black;
 }
 </style>

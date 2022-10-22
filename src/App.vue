@@ -5,10 +5,12 @@
   </div>
 </template>
 <script>
+
 import BanNav from './views/BanNav.vue';
 export default {
   name: "app",
-  components: { BanNav }
+  components: { BanNav },
+ 
 }
 </script>
 <style>

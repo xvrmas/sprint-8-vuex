@@ -1,0 +1,56 @@
+[debug] [2022-10-18T17:01:00.226Z] ----------------------------------------------------------------------
+[debug] [2022-10-18T17:01:00.229Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\4masd\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-10-18T17:01:00.230Z] CLI Version:   11.15.0
+[debug] [2022-10-18T17:01:00.230Z] Platform:      win32
+[debug] [2022-10-18T17:01:00.230Z] Node Version:  v16.15.1
+[debug] [2022-10-18T17:01:00.231Z] Time:          Tue Oct 18 2022 19:01:00 GMT+0200 (Hora d’estiu del Centre d’Europa)
+[debug] [2022-10-18T17:01:00.232Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-18T17:01:00.242Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-18T17:01:00.243Z] > authorizing via signed-in user (xvrmasgarcia@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\4masd\Documents\Projectes\sprint-8-vuex
+
+[debug] [2022-10-18T18:23:59.266Z] ----------------------------------------------------------------------
+[debug] [2022-10-18T18:23:59.267Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\4masd\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-10-18T18:23:59.268Z] CLI Version:   11.15.0
+[debug] [2022-10-18T18:23:59.268Z] Platform:      win32
+[debug] [2022-10-18T18:23:59.268Z] Node Version:  v16.15.1
+[debug] [2022-10-18T18:23:59.269Z] Time:          Tue Oct 18 2022 20:23:59 GMT+0200 (Hora d’estiu del Centre d’Europa)
+[debug] [2022-10-18T18:23:59.269Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-18T18:23:59.278Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-18T18:23:59.278Z] > authorizing via signed-in user (xvrmasgarcia@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\4masd\Documents\Projectes\sprint-8-vuex
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] 
+=== Firestore Setup
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 

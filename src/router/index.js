@@ -20,9 +20,9 @@ const routes = [
     component: () => import('../views/InfoStarship.vue')
   },
   {
-    path: '/LoginPage',
-    name: 'LoginPage',
-    component: () => import('../views/LoginPage.vue')
+    path: '/AuthView',
+    name: 'AuthView',
+    component: () => import('../views/AuthView.vue')
   }
 
 ]
