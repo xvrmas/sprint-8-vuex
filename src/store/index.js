@@ -37,7 +37,7 @@ export default new Vuex.Store({
     setShips(state, setShipsAction) {
       state.starShips = setShipsAction
     },
-    setImageShips(state,setImageShipsAction ) {
+    setImageShips(state, setImageShipsAction) {
       state.imageShips = setImageShipsAction
     }
   },
@@ -48,17 +48,17 @@ export default new Vuex.Store({
       commit('setShips', ships)
     },
     async GET_IMAGESHIPS({ commit }) {
-      const response = await fetch(`https://starwars-visualguide.com/assets/img/starships/${this.state.numImg}.jpg`);
-      const imageShips = response.url;
-      commit('setImageShips', imageShips),
-        console.log('URL-store--->', imageShips)
-      // .then((response) => response.json())
-      // .then((data) => {
-      //   console.log('Success:', data);
-      // })
-      // .catch((error) => {
-      //   console.error('Error:', error);
-      // });
+      try {
+        const response = await fetch(`https://starwars-visualguide.com/assets/img/starships/${this.state.numImg}.jpg`);
+        const imageShips = response.url;
+        if (response.status == 404) {
+          this.state.imageShips ='https://www.cityofkingman.gov/Home/ShowPublishedImage/2744/636934515291700000'
+        } else {
+          commit('setImageShips', imageShips)
+        }
+      } catch (error) {
+        console.log('error')
+      }
     },
   },
   modules: {
