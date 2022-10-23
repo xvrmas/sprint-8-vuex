@@ -11,7 +11,7 @@ export default new Vuex.Store({
     page: 1,
     condition: false,
     numImg: 1,
-    imageShips:null
+    imageShips: ''
   },
   getters: {
     getStarShips(state) {
@@ -29,7 +29,7 @@ export default new Vuex.Store({
     getNumImg(state) {
       return state.numImg
     },
-    getImageShips(state){
+    getImageShips(state) {
       return state.imageShips
     }
   },
@@ -37,8 +37,8 @@ export default new Vuex.Store({
     setShips(state, setShipsAction) {
       state.starShips = setShipsAction
     },
-    setImageShips(state,setImageShipsAction){
-      state.imageShips =setImageShipsAction
+    setImageShips(state,setImageShipsAction ) {
+      state.imageShips = setImageShipsAction
     }
   },
   actions: {
@@ -49,10 +49,9 @@ export default new Vuex.Store({
     },
     async GET_IMAGESHIPS({ commit }) {
       const response = await fetch(`https://starwars-visualguide.com/assets/img/starships/${this.state.numImg}.jpg`);
-      const imageShips = response;
-      console.log(imageShips)
-      commit('setImageShips', imageShips)
-
+      const imageShips = response.url;
+      commit('setImageShips', imageShips),
+        console.log('URL-store--->', imageShips)
       // .then((response) => response.json())
       // .then((data) => {
       //   console.log('Success:', data);
