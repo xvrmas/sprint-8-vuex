@@ -15,9 +15,9 @@ const routes = [
     component: () => import('../views/ListStarships.vue')
   },
   {
-    path: '/InfoStarship',
-    name: 'InfoStarship',
-    component: () => import('../views/InfoStarship.vue')
+    path: '/panell',
+    name: 'panell',
+    component: () => import('../views/panell.vue')
   },
   {
     path: '/AuthView',

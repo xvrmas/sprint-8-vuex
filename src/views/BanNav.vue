@@ -1,41 +1,39 @@
 <template>
     <div>
-        <!-- <div> -->
-        <div>
-            <b-navbar class="py-3 fixed-top" toggleable="sm" type="dark">
-                <div class="container d-flex">
-                    <!-- <b-navbar-toggle target="nav-text-collapse"> -->
-                        <img class="imatge" src="@/assets/starwars-logo.png" alt="logo star wars">
-                        <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
-                            <div>
-                                    <button class="nav-item btn text-white" @click="loginPage()">LOGIN</button>//
-                                    <button class=" nav-item btn text-white">REGISTER</button>
-                            </div>
-                        </div>
-                    <!-- </b-navbar-toggle> -->
-                    <!-- </b-collapse> -->
-                    <div class="fixed-top"
-                        style="border-top:solid rgb(221,221,221) 1px; border-bottom: solid rgb(221,221,221)  1px; margin-top:130px">
+        <b-navbar class="fixed-top" toggleable="lg" type="dark">
+            <div class="col-sm-4"></div>
+            <b-navbar-brand href="#">
+                <img class="imatge" src="@/assets/starwars-logo.png" alt="logo star wars">
+            </b-navbar-brand>
+            <div class="col-2"></div>
+            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+            <b-collapse id="nav-collapse" is-nav>
+                <b-navbar-nav>
+                    <div class="linea">
                         <b-button squared class="btn bg-transparent " @click="Home()">HOME</b-button>
-                        <b-button squared class="btn bg-transparent " @click="showStarships()">STARSHIPS
-                        </b-button>
+                        <b-button squared class="btn bg-transparent " @click="showStarships()">STARSHIPS</b-button>
                     </div>
-                </div>
-            </b-navbar>
-        </div>
+                    <button class="nav-item btn text-white" @click="loginPage()">LOGIN</button>//
+                    <button class=" nav-item btn text-white">REGISTER</button>
+                </b-navbar-nav>
+            </b-collapse>
+        </b-navbar>
+
     </div>
 </template>
+
+
 <script>
 import Home from './Home.vue'
 import ListStarships from "./ListStarships.vue";
-import InfoStarship from "./InfoStarship.vue";
 import { mapState } from 'vuex'
 
 export default {
     name: "BanNav",
-    components: { Home, ListStarships, InfoStarship },
+    components: { Home, ListStarships },
     computed: {
-        ...mapState(['condition','numImg']),
+        ...mapState(['condition', 'numImg']),
     },
     methods: {
         showStarships: function () {
@@ -43,7 +41,7 @@ export default {
             this.$store.state.condition = true
             return this.$store.dispatch("GET_STARSHIPS")
         },
-       
+
         Home() {
             this.$router.push("/");
 
@@ -59,6 +57,10 @@ export default {
 <style>
 * {
     background-color: black;
+}
+
+.linea {
+    border: solid white 1px;
 }
 
 .social {

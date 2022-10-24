@@ -1,12 +1,13 @@
 <template>
     <div class="llista">
-        <div class="col-sm-8 mx-auto  p-3 m-3  bg-dark" v-for="(item,i) in getStarShips.results" :key="i">
-            <a class="nav-link  bg-dark text-secondary " href="#" @click="setInfoShip(item),imatge(item),showImageShip(item)">
-                <h5 class="bg-dark">{{item.name}}</h5>
-                <h6 class="bg-dark">{{item.model}}</h6>
+        <div class="col-sm-8 mx-auto  p-3 m-3  bg-dark" v-for="(item, i) in getStarShips.results" :key="i">
+            <a class="nav-link  bg-dark text-secondary " href="#"
+                @click="setInfoShip(item), imatge(item), showImageShip(item), panell()">
+                <h5 class="bg-dark">{{ item.name }}</h5>
+                <h6 class="bg-dark">{{ item.model }}</h6>
             </a>
         </div>
-        <div v-if="getCondition" class="mx-auto m-5 ">
+        <div v-if="getCondition" class="navegacio d-flex m-5 col-1  border mx-auto ">
             <button class="btn ml-5 text-white " @click="decreasePage">
                 <b-icon icon="arrow-left"></b-icon>
             </button>
@@ -38,7 +39,6 @@ export default {
 
     methods: {
         setInfoShip(item) {
-            this.$router.push("/InfoStarship");
             this.$store.state.infoTechShip = item;
             console.log(item)
         },
@@ -64,6 +64,11 @@ export default {
         showImageShip: function (item) {
             return this.$store.dispatch("GET_IMAGESHIPS", item)
         },
+        panell() {
+            this.$router.push("/panell");
+
+        }
+
     },
 
 }
@@ -71,6 +76,10 @@ export default {
 <style scoped>
 .llista {
     margin-top: 200px;
+}
+
+.navegacio {
+    align-items: center;
 }
 
 .botons-nav {
