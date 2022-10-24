@@ -1,5 +1,5 @@
 <template>
-    <div class="container  text-white" align-content="center">
+    <div class="text-white">
         <h2>{{ getInfoShips.name }}</h2>
         <hr>
         <h6><strong>Model:</strong> {{ getInfoShips.model }}</h6>
@@ -29,8 +29,6 @@ export default {
     },
 }
 </script>
-<style scoped>
-.container {
-    margin-top: 20vh;
-}
+<style>
+
 </style>

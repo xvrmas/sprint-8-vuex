@@ -7,7 +7,7 @@
                 <h6 class="bg-dark">{{ item.model }}</h6>
             </a>
         </div>
-        <div v-if="getCondition" class="navegacio d-flex m-5 col-1  border mx-auto ">
+        <div v-if="getCondition" class="navegacio d-flex m-5 col-1  mx-auto ">
             <button class="btn ml-5 text-white " @click="decreasePage">
                 <b-icon icon="arrow-left"></b-icon>
             </button>

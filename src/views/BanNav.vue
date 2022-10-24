@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-navbar class="fixed-top" toggleable="lg" type="dark">
+        <b-navbar class="barra fixed-top" toggleable="lg" type="dark">
             <div class="col-sm-4"></div>
             <b-navbar-brand href="#">
                 <img class="imatge" src="@/assets/starwars-logo.png" alt="logo star wars">
@@ -10,9 +10,9 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <div class="linea">
-                        <b-button squared class="btn bg-transparent " @click="Home()">HOME</b-button>
-                        <b-button squared class="btn bg-transparent " @click="showStarships()">STARSHIPS</b-button>
+                    <div>
+                        <b-button class="btn bg-transparent " @click="Home()">HOME</b-button>
+                        <b-button class="btn bg-transparent " @click="showStarships()">STARSHIPS</b-button>
                     </div>
                     <button class="nav-item btn text-white" @click="loginPage()">LOGIN</button>//
                     <button class=" nav-item btn text-white">REGISTER</button>
@@ -58,30 +58,9 @@ export default {
 * {
     background-color: black;
 }
-
-.linea {
-    border: solid white 1px;
+body{
+    /* background-image: url(@/assets/stars.jpg); */
+    background-attachment:fixed;
 }
 
-.social {
-    margin-left: 20em;
-}
-
-.imatge {
-    margin-left: 40%;
-}
-
-.botons {
-    margin-top: 22vh;
-    border-bottom: solid rgb(221, 221, 221) 1px;
-    border-top: solid rgb(221, 221, 221) 1px;
-}
-
-.btn1 {
-    margin-right: 10%;
-}
-
-.botons-2 {
-    background-color: black;
-}
 </style>

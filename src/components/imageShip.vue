@@ -1,6 +1,6 @@
 <template>
-    <div class="col-6">
-        <b-img :src="imageShips"></b-img>
+    <div >
+        <b-img  fluid :src="imageShips"></b-img>
     </div>
 </template>
 <script>
@@ -17,7 +17,9 @@ export default {
 }
 </script>
 <style scoped>
-.container {
-    margin-top: 20vh;
+.img{
+    width: fit-content;
+    height: auto;
 }
+
 </style>
