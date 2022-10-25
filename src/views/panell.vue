@@ -35,6 +35,9 @@ export default {
     margin-top: 25vh;
     display: grid;
     grid-template-columns: auto;
+    border: solid yellow;
+
+
 }
   .item {
     padding: 0px;

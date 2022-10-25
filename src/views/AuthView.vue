@@ -1,45 +1,59 @@
 <template>
-    <div class="contenidor border p-3 col-sm-6">
-        <b-container fluid>
-            <b-row class="my-1 mx-5">
-                <b-col sm="2">
-                    <label class="text-white" for="input-default">E-mail</label>
-                </b-col>
-                <b-col sm="6">
-                    <b-form-input  type="email" size="sm" placeholder="Enter your name"></b-form-input>
-                </b-col>
-            </b-row>
-            <b-row class="my-1 mx-5">
-                <b-col sm="2">
-                    <label  class="text-white" for="input-default">Password</label>
-                </b-col>
-                <b-col sm="6">
-                    <b-form-input class="tetx-white" size="sm" type="password" placeholder="Enter your password"></b-form-input>
-                </b-col>
-            </b-row>        
-        </b-container>
+
+    <div class="contenidor">
+        <b-form class="text-white" @submit.prevent="login">
+            <b-input v-model="usuario" class="m-3" type="text" placeholder="Usuario"></b-input>
+            <b-input v-model="contrasena" class="m-3" type="password" placeholder="Contraseña"></b-input>
+            <b-button class="m-3" type="submit" value="Acceder">Acceder</b-button>
+        </b-form>
+        <pre class="text-white">{{ $data }}</pre>
     </div>
+
 </template>
 <script>
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 export default {
-    name: 'AuthView',
+
     data() {
         return {
-            isLogin: true,
-            isLoading: false,
-            userData: {
-                name: '',
-                email: '',
-                password: '',
-            }
+            usuario: '',
+            contrasena: ''
+        }
+    },
+    methods: {
+        login() {
+
+            const auth = getAuth();
+            signInWithEmailAndPassword(auth, this.usuario, this.contrasena)
+                .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    // ...
+                    alert('logejad!!')
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                });
         }
     }
 }
-
 </script>
+
 <style scoped>
-.contenidor{
+.contenidor {
     margin-top: 40vh;
-    margin-left: 20%;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+form>* {
+    display: block;
 }
 </style>
