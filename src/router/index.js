@@ -1,9 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth"
+
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '*',
+    redirect: '/AuthView'
+  },
+  {
+    path: '/ListStarships',
+    redirect: '/AuthView'
+  },
   {
     path: '/',
     name: 'Home',
@@ -12,7 +23,10 @@ const routes = [
   {
     path: '/ListStarships',
     name: 'ListStarships',
-    component: () => import('../views/ListStarships.vue')
+    component: () => import('../views/ListStarships.vue'),
+    meta: {
+      auntentificado: true
+    }
   },
   {
     path: '/panell',
@@ -22,7 +36,14 @@ const routes = [
   {
     path: '/AuthView',
     name: 'AuthView',
-    component: () => import('../views/AuthView.vue')
+    component: () => import('../views/AuthView.vue'),
+
+  },
+  {
+    path: '/RegPage',
+    name: 'RegPage',
+    component: () => import('../views/RegPage.vue'),
+
   }
 
 ]
@@ -35,5 +56,6 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
 
 export default router

@@ -15,7 +15,7 @@
                         <b-button class="btn bg-transparent " @click="showStarships()">STARSHIPS</b-button>
                     </div>
                     <button class="nav-item btn text-white" @click="loginPage()">LOGIN</button>//
-                    <button class=" nav-item btn text-white">REGISTER</button>
+                    <button class=" nav-item btn text-white" @click="registerPage()">REGISTER</button>
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>
@@ -48,6 +48,10 @@ export default {
         },
         loginPage() {
             this.$router.push("/AuthView");
+
+        },
+        registerPage(){
+            this.$router.push("/RegPage");
 
         }
     }
